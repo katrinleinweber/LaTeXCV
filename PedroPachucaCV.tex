@@ -1,0 +1,270 @@
+
+\documentclass[10pt]{article}
+
+
+\usepackage{calc}
+\usepackage{comment}
+
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em} %1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}%
+        {\begin{enumerate}{}{%
+%        {\begin{list}{}{%
+       \setlength{\leftmargin}{\bibhang}%
+       \setlength{\itemindent}{-\leftmargin}%
+       \setlength{\itemsep}{\bibsep}%
+       \setlength{\parsep}{\z@}%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{enumerate}\vspace{-.6\baselineskip}}
+%        {\end{list}\vspace{-.6\baselineskip}}
+\makeatother
+
+
+\reversemarginpar
+
+
+\usepackage[paper=letterpaper,
+            marginparwidth=1.2in,     
+            marginparsep=.05in,      
+            margin=1in,               
+            includemp]{geometry}
+
+%%  A4-sized paper
+%\usepackage[paper=a4paper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=30.5mm,    % Length of section titles
+%            marginparsep=1.5mm,       % Space between titles and text
+%            margin=25mm,              % 25mm margins
+%            includemp]{geometry}
+
+
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \hyphenpenalty=10000%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}}
+
+
+\newenvironment{loneinnerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}\vspace{-.6\baselineskip}}
+
+
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+
+\providecommand*\url[1]{\href{#1}{#1}}
+
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+
+
+\begin{document}
+\makeheading{Pedro Pachuca}
+
+\section{Contact Information}
+
+
+\newlength{\rcollength}\setlength{\rcollength}{1.4in}%
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
+\href{https://github.com/PedroPachuca}{\textbf{Github}}   & \href{https://d2l73v4jsihpz3.cloudfront.net/}{\textbf{Website}} \\
+\href{https://www.linkedin.com/in/pedropachuca/}{\textbf{LinkedIn}}  & \email{pedritopachuca@me.com}\\
+\end{tabular}
+
+
+\section{Who Am I}
+
+I am an avid coder, computer enthusiast, teacher, quizbowler, and soccer player.
+
+\section{Education}
+
+\href{http://amador.pleasantonusd.net/}{\textbf{Amador Valley High School}},
+Pleasanton, CA
+\begin{outerlist}
+
+\item[] High School Diploma
+             \emph{Expected:} Summer 2019
+        \begin{innerlist}
+        \item Weighted GPA: \emph{4.4}
+        \item Uneighted GPA: \emph{3.9}
+        \end{innerlist}
+\end{outerlist}
+\vspace{.1in}
+\href{http://www.edx.org}{\textbf{Online Coursework}}  \emph{All Passed with A grade}
+\begin{outerlist}
+\item[] Mechanics: Kinematics and Dynamics by MIT, Summer 2017
+\vspace{.005in}
+\item[] Cyberwar, Surveillance, and Security by University of Adelaide, Summer 2017
+\vspace{.005in}
+\item[] Computation Structures 1: Digital Circuits by MIT,  Early 2017
+\vspace{.005in}
+\item[] Introduction to Real-Time Systems by IEEE, Winter 2016
+\vspace{.005in}
+\item[]Introduction to Linux by LinuxFoundation, Summer 2016
+\end{outerlist}
+\vspace{.1in}
+
+\href{http://www.laspositascollege.edu/}{\textbf{Las Positas College}}, Livermore, CA.  \emph{GPA: 4.0}
+\begin{outerlist}
+\item[] Computer Information Systems 50
+\end{outerlist}
+
+\section{Skills}
+
+\textbf{iOS Development}
+\begin{innerlist}
+\item[] Proficient in Swift and Objective-C.
+\end{innerlist}
+
+\textbf{Web Developmentt} 
+\begin{innerlist}
+\item[] Proficient in HTML, CSS, and JavaScript. Familiar with PHP and SQL. 
+\end{innerlist}
+
+\textbf{Scripting}
+\begin{innerlist}
+\item[] Familiar with Bash, PowerShell, and UNIX Shell scripting. 
+\end{innerlist}
+
+\textbf{General Use Languages}
+\begin{innerlist}
+\item[] Proficient in Java and Python. Familiar with C and C++.
+\end{innerlist}
+
+\textbf{Cyber Security}
+\begin{innerlist}
+\item[] Proficient in Cyber Security for Windows 7/8.1/10, Windows Server(All Versions), and Ubuntu.
+\end{innerlist}
+
+\textbf{Computer Hardware}
+\begin{innerlist}
+\item[] Expansive knowledge about Desktop/Laptop Computer Hardware including full construction (with or without full watercooling), logical optimization (RAID, Optane), and processor architecture.
+\end{innerlist}
+
+
+\section{Avhievements}
+\vspace{-.1275in}
+\begin{innerlist}
+    \item First Place in Bay Area for 2016-2017 Nationwide CyberPatriot Competition.
+    \item First Place in Bay Area for 2017 All IT Day at Las Positas College.
+    \item Elite Cyber Defender Award at 2017 California Cyber Innovation Challenge Invitational.
+    \item Second Place in California Cyber Innovation Challenge Invitational Forensics Event. 
+    \item Second Place in Cisco Cyber Cup 2017.
+    \item Nationwide CyberPatriot Platinum Division for 2016-2017 and 2017-2018.
+    \item Top 50 in NYU CSAW HSF competition 2017
+    \item 5/5 on 12 AP Exams including AP Physics C: Mechanics, AP Physics C: Electricity and Magnetism, AP Calculus BC, AP World History, AP US History, and AP Language and Composition.
+    \item 1560/1600 on SAT
+    \item 800 on SAT II Math 2 and Physics. 760 on SAT II World History and US History
+\end{innerlist}
+
+\section{Major Projects}
+\vspace{-.125in}
+\begin{innerlist}
+    \item \textbf{Swift:} \emph{Synergy}: Created Organizational iOS App for Synergy Group at Renesas Electronics America. Sold to Reneas Electronics.
+    \item \textbf{HTML, CSS, PHP, and JS:} \emph{Personal Website}: Created full-fledged Website about myself and my interests.  
+    \item \textbf{Hardware:} \emph{Desktop Builds}: Constructed multiple Desktop builds for family and friends. Turned into paid business.  
+    \item \textbf{Synergy C:} \emph{Automated Sprinkler System}: Created programmable automated sprinkler system usign renesas DK-S7G2 Board. 
+    \item \textbf{Batch:} \emph{CyberSecurity Scripts}: Created 400+ line Batch cript to secure Windows 7+ and Windows Server Machines. 
+    \item \textbf{JavaScript:} \emph{Alexa Skills}: Created Two Amazon Echo Alexa Skills to provide chess and technology news interactively.   
+    \item \textbf{Java:} \emph{Super Smash AI}: Improved on Machine Learning implementation of Super Smash Bros. Utilizes Genetic Algorithms and Neural Networks.
+    \item \textbf{VMWare:} \emph{CyberPatriot Images}: Created tens of CyberPatriot Practice Virtual Machine Images to teach with. 
+    \item  \textbf{Java:} \emph{Binary Genetic Algorithm}: Created sample Binary Genetic Algorithm to aid teaching.
+   \item Most Source Code and 26+ more projects available on my \href{https://github.com/PedroPachuca}{\textbf{Github}}
+\end{innerlist}
+
+
+\section{Activities}
+\vspace{-.1in}
+\begin{bibsection}
+    \item  \textbf{President:} \emph{CCSC}: Competitive Computer Science Club involved in Cyber Security, Competitive Coding, and the promotion of girls in the IT World.
+    \item \textbf{President and Lead Lecturer:} \emph{AceCoding}: Managed ~7 volunteers and taught weekly Java and Git lessons to 40+ students at local middle school.  Helped organize ACE Code Day: a local event with 15+ workshops as well as a hackathon that attracts ~300 students. Taught Beginner and Advanced Swift as well as Machine Learning at ACE Code Day 2017. Also taught Java, HTML, Scratch, and Python workshops during the Summer. 
+    \item  \textbf{Software Developer:} \emph{AVBotz}: Part of Software team  for autonomous submarine capable of manipulating objects, aiming and shooting torpedoes, and navigating around obstacles. Competed in RoboSub competition.
+    \item \textbf{President:} \emph{QuizBowl}: Participated in QuizBowl tournaments including The CalCup. Led practice sessions and prepared club for upcoming Tournaments. 
+    \item \textbf{Engineer:} \emph{Aviation}: Designed and built rocket to compete in the Team America Rocketry Challenge. 
+    \item \textbf{Member:} \emph{Math Team}: Participated in the AMC. 
+    \item \textbf{Self-Study:} \emph{USACO}: Competed in USA Computing Olympiad.
+    \item  \textbf{Forward:} \emph{BUSC}: Competed in U19 BUSC TriValley Soccer as well as various torunaments such as the California Founder's Cup.
+\end{bibsection}
+
+\section{Endnote}
+\vspace{.1in}
+Make sure to visit my \href{https://d2l73v4jsihpz3.cloudfront.net/}{\textbf{Website}} at https://d2l73v4jsihpz3.cloudfront.net/ for more detailed information.
+
+
+
+\end{document}
+
