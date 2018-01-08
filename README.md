@@ -4,7 +4,7 @@
 Written with:
 1. LaTeX
 
-Written using TeXWorks
+Written using TeXworks
 
 Pedro Pachuca &copy; 2018
 
