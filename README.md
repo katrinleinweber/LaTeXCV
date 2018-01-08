@@ -1,5 +1,5 @@
 # LaTeXCV
-##My Curriculum Vitae.
+## My Curriculum Vitae.
 
 Written with:
 1. LaTeX
